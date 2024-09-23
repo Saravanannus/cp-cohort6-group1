@@ -1,2 +1,2 @@
 # cp-cohort6-group1
-Group-1 Capstone Project
+## Group-1 Capstone Project ##
