@@ -30,25 +30,25 @@ ________________________________________________________________________________
 _______________________________________________________________________________________
 ## Explanation of CICD Workflow
 
-**on: pull_request & push:** The workflow is triggered by pull requests and push events on the dev and main branches.
+- **on: pull_request & push:** The workflow is triggered by pull requests and push events on the dev and main branches.
 jobs:
 
-**test:** This job runs tests to ensure the code is ready for deployment. It installs dependencies and executes the test suite.
+- **test:** This job runs tests to ensure the code is ready for deployment. It installs dependencies and executes the test suite.
 
-**deploy-staging:** This job is triggered when the dev branch is updated. If the tests pass, the application is deployed to the staging environment.
+- **deploy-staging:** This job is triggered when the dev branch is updated. If the tests pass, the application is deployed to the staging environment.
 
-**deploy-production:** This job is triggered when the main branch is updated, deploying the application to production after passing tests.
+- **deploy-production:** This job is triggered when the main branch is updated, deploying the application to production after passing tests.
 
 ### Branch Permissions
 To enforce branch protection, you can configure GitHub branch protection rules:
 
-**Main Branch (main):**
+- **Main Branch (main):**
 
 Require status checks (tests) to pass before merging.
 Require PR approval (at least one reviewer).
 Prevent direct pushes to the branch.
 
-**Development Branch (dev):**
+- **Development Branch (dev):**
 
 Similar restrictions as the main branch.
 Use required status checks for running tests.
