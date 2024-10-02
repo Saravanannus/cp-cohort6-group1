@@ -1,0 +1,69 @@
+# name: CI/CD Pipeline
+
+# on:
+#   pull_request:
+#     branches:
+#       - dev
+#       - main
+#   push:
+#     branches:
+#       - dev
+#       - main
+
+# jobs:
+#   test:
+#     runs-on: ubuntu-latest
+#     steps:
+#       # Checkout the code from the repository
+#       - name: Checkout code
+#         uses: actions/checkout@v2
+
+#       # Setup Node.js (or your desired environment)
+#       - name: Setup Node.js environment
+#         uses: actions/setup-node@v2
+#         with:
+#           node-version: '14' # Specify the Node.js version
+
+#       # Install dependencies
+#       - name: Install dependencies
+#         run: npm install
+
+#       # Run tests to ensure code integrity
+#       - name: Run tests
+#         run: npm test
+
+#   deploy-staging:
+#     if: github.ref == 'refs/heads/dev' # Only trigger on dev branch
+#     needs: test # Depends on the test job success
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v2
+
+#       # You can specify any additional setup needed for deployment here
+
+#       # Deploy to Staging environment
+#       - name: Deploy to Staging
+#         run: |
+#           echo "Deploying to staging environment"
+#           # Add commands to deploy to staging environment
+#           # Example: SSH into the server or use cloud CLI
+#           # ssh user@staging-server "deploy-script"
+
+#   deploy-production:
+#     if: github.ref == 'refs/heads/main' # Only trigger on main branch
+#     needs: test # Depends on the test job success
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v2
+
+#       # You can specify any additional setup needed for deployment here
+
+#       # Deploy to Production environment
+#       - name: Deploy to Production
+#         run: |
+#           echo "Deploying to production environment"
+#           # Add commands to deploy to production environment
+#           # Example: SSH into the server or use cloud CLI
+#           # ssh user@production-server "deploy-script"
