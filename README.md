@@ -31,28 +31,29 @@ ________________________________________________________________________________
 ## Explanation of CICD Workflow
 
 - **on: pull_request & push:** The workflow is triggered by pull requests and push events on the dev and main branches.
-jobs:
+- **jobs:**
 
-- **test:** This job runs tests to ensure the code is ready for deployment. It installs dependencies and executes the test suite.
+  - **test:** This job runs tests to ensure the code is ready for deployment. It installs dependencies and executes the test suite.
 
-- **deploy-staging:** This job is triggered when the dev branch is updated. If the tests pass, the application is deployed to the staging environment.
+  - **deploy-staging:** This job is triggered when the dev branch is updated. If the tests pass, the application is deployed to the staging environment.
 
-- **deploy-production:** This job is triggered when the main branch is updated, deploying the application to production after passing tests.
+   - **deploy-production:** This job is triggered when the main branch is updated, deploying the application to production after passing tests.
 
 ### Branch Permissions
-To enforce branch protection, you can configure GitHub branch protection rules:
 
-- **Main Branch (main):**
+To enforce branch protection, can configure GitHub branch protection rules:
 
-Require status checks (tests) to pass before merging.
-Require PR approval (at least one reviewer).
-Prevent direct pushes to the branch.
+1.**Main Branch (main):**
 
-- **Development Branch (dev):**
+- Require status checks (tests) to pass before merging.
+- Require PR approval (at least one reviewer).
+- Prevent direct pushes to the branch.
 
-Similar restrictions as the main branch.
-Use required status checks for running tests.
-You can configure these protections in the repository's Settings Branches.
+2.**Development Branch (dev):**
+
+- Similar restrictions as the main branch.
+- Use required status checks for running tests.
+- we can configure these protections in the repository's ***Settings*** -> ***Branches***.
 
 ### Deploy Scripts
 
